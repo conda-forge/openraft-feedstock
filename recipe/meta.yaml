@@ -43,7 +43,7 @@ test:
     - raft
     - examples
   commands:
-    - pip install orbit-nrel
+    - pip install orbit-nrel windIO jsonmerge dearpygui
     - cd examples
     - python example_from_yaml.py false
     - cd ..
