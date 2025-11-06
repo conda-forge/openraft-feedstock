@@ -1,5 +1,5 @@
 {% set name = "OpenRAFT" %}
-{% set version = "2.0.0" %}
+{% set version = "2.0.2" %}
 
 package:
   name: {{ name|lower }}
@@ -8,7 +8,7 @@ package:
 source:
   url: https://github.com/WISDEM/RAFT/archive/v{{ version }}.tar.gz
     # Download the tar-ball and do: openssl sha256 file.tar.gz to update
-  sha256: 1414b47e3ced94ec86bea815f38dd247c63d6c97b704f161feaffab64badc65a
+  sha256: d5e6e8a7e4f988b64f8cff0de4efda440215cd6fe0ae92c8ff8618a40272e1d3
 
 build:
   noarch: python
@@ -43,7 +43,7 @@ test:
     - raft
     - examples
   commands:
-    - pip install orbit-nrel
+    - pip install orbit-nrel windIO jsonmerge dearpygui
     - cd examples
     - python example_from_yaml.py false
     - cd ..
