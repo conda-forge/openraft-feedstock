@@ -1,5 +1,5 @@
 {% set name = "OpenRAFT" %}
-{% set version = "2.0.2" %}
+{% set version = "2.0.3" %}
 
 package:
   name: {{ name|lower }}
@@ -8,7 +8,7 @@ package:
 source:
   url: https://github.com/WISDEM/RAFT/archive/v{{ version }}.tar.gz
     # Download the tar-ball and do: openssl sha256 file.tar.gz to update
-  sha256: d5e6e8a7e4f988b64f8cff0de4efda440215cd6fe0ae92c8ff8618a40272e1d3
+  sha256: 5bea3668897fb987adda678a82fca136d6af95a64d1a524d2440818bf1bcb4e2
 
 build:
   noarch: python
