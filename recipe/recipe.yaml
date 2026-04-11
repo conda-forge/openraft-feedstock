@@ -1,0 +1,66 @@
+schema_version: 1
+
+context:
+  name: OpenRAFT
+  version: "2.0.3"
+
+package:
+  name: ${{ name|lower }}
+  version: ${{ version }}
+
+source:
+  # Download the tar-ball and do: openssl sha256 file.tar.gz to update
+  url: https://github.com/WISDEM/RAFT/archive/v${{ version }}.tar.gz
+  sha256: 5bea3668897fb987adda678a82fca136d6af95a64d1a524d2440818bf1bcb4e2
+
+build:
+  number: 1
+  noarch: python
+  script: ${{ PYTHON }} -m pip install . -vv
+
+requirements:
+  host:
+    - python ${{ python_min }}.*
+    - setuptools
+    - pip
+  run:
+    - matplotlib-base
+    - moorpy
+    - numpy
+    - openmdao
+    - pyhams
+    - python >=${{ python_min }}
+    - pyyaml
+    - ruamel.yaml
+    - scipy
+    - wisdem
+
+tests:
+  - files:
+      source:
+        - raft
+        - examples
+    requirements:
+      run:
+        - pip
+        - python ${{ python_min }}.*
+    script:
+      - pip install orbit-nrel windIO jsonmerge dearpygui
+      - cd examples
+      - python example_from_yaml.py false
+      - cd ..
+
+about:
+  summary: "RAFT: Response Amplitudes of Floating Turbines"
+  description: |
+    RAFT is a frequency domain analysis tool of floating offshore wind turbines
+    that uses either strip theory or the HAMS boundary element method solver.
+  license: Apache-2.0
+  license_file: LICENSE
+  homepage: https://github.com/wisdem/raft
+  repository: https://github.com/wisdem/raft
+
+extra:
+  recipe-maintainers:
+    - gbarter
+    - mattEhall
