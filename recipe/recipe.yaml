@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: OpenRAFT
-  version: "2.0.3"
+  version: "2.0.4"
 
 package:
   name: ${{ name|lower }}
@@ -11,10 +11,10 @@ package:
 source:
   # Download the tar-ball and do: openssl sha256 file.tar.gz to update
   url: https://github.com/WISDEM/RAFT/archive/v${{ version }}.tar.gz
-  sha256: 5bea3668897fb987adda678a82fca136d6af95a64d1a524d2440818bf1bcb4e2
+  sha256: 1d11db61db6b1f8ee96b735a26e4d8455bf22a4c225208ff9d16e48ff93f0ae9
 
 build:
-  number: 1
+  number: 0
   noarch: python
   script: ${{ PYTHON }} -m pip install . -vv
 
